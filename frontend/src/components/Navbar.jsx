@@ -13,7 +13,7 @@ export default function Navbar(){
           <a class="nav-link" aria-current="page" href="/alltasks">All Tasks</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/done">Done</a>
+          <a class="nav-link" href="/donetasks">Done</a>
         </li>
       </ul>
       <form class="d-flex">

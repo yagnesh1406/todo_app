@@ -8,6 +8,7 @@ import RegisterPage from './pages/RegisterPage';
 import AddTaskForm from './components/AddTaskForm';
 import Navbar from './components/Navbar';
 import TaskList from './components/TaskList';
+import Donetasks from './components/Donetasks';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/" element={<HomePage/>} />
         <Route path="/addtask" element={<AddTaskForm/>}/>
         <Route path='/alltasks' element={<TaskList/>}/>
+        <Route path='/donetasks' element={<Donetasks/>}/>
       </Routes>
     </Router>
   );

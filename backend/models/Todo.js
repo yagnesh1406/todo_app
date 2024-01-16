@@ -17,7 +17,8 @@ class Todo {
 
     static async markAsDone(tid) {
       const db = await dbInstance.getInstance();
-      const result = await db.query(queries.markAsDone(), ['true',tid]);
+      const time = new Date();
+      const result = await db.query(queries.markAsDone(), ['true',time,tid]);
       return result;
     }
 

@@ -25,7 +25,7 @@ const queries = {
     return findTaskById;
   },
   markAsDone: () => {
-    const markAsDone = `UPDATE TODO set status = $1 where tid = $2`;
+    const markAsDone = `UPDATE TODO set status = $1, start_time = $2, end_time =$2 where tid = $3`;
     return markAsDone;
   },
   getPendingTasks: () => {

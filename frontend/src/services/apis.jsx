@@ -25,6 +25,11 @@ const api = {
       'Authorization': `Bearer ${token}`,
     },
   }),
+  getDoneTasks: () => fetch(`${API_BASE_URL}/getDoneTasks`, {
+    headers: {
+      'Authorization': `Bearer ${token}`,
+    },
+  }),
   getAllTasks: () => fetch(`${API_BASE_URL}/getAllTasks`, {
     headers: {
       'Authorization': `Bearer ${token}`,

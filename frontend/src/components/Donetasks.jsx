@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../services/apis";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const TaskList = () => {
+const Donetasks = () => {
   const navigate = useNavigate();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,11 +14,11 @@ const TaskList = () => {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      const response = await api.getAllTasks(token);
+      const response = await api.getDoneTasks(token);
 
       if (response.ok) {
         const data = await response.json();
-        // console.log(data);
+        console.log(data);
         setTasks(data.data);
       } else {
         console.error("Error fetching tasks");
@@ -71,4 +71,4 @@ const TaskList = () => {
   );
 };
 
-export default TaskList;
+export default Donetasks;
