@@ -1,15 +1,19 @@
 const Todo = require("../models/Todo");
 
 const addTask = async (req,res) => {
-  let { task, description, priority} = req.body;
+  let { task, description, priority, subtasks} = req.body;
   const uid = req.user.uid;
   try {
     if(priority == undefined ||  priority == null || priority.length == 0){
       priority = 'Low';
     } 
+
+    if(subtasks == undefined ||  subtasks == null || subtasks.length == 0){
+      subtasks = [];
+    }
     const status = 'false';
     const date = new Date();
-    const result = await Todo.addTask(uid,task,description,status,priority, date);
+    const result = await Todo.addTask(uid,task,description,status,priority, subtasks, date);
     if(result.rowCount){
         res.send({success: true, message: "task added successfully"});
     }

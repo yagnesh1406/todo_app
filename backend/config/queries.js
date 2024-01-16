@@ -17,7 +17,7 @@ const queries = {
     return createUser;
   },
   addTask: () => {
-    const addTask =  `INSERT INTO todo (uid, task, description, status, priority,date_added) VALUES ($1,$2,$3,$4,$5,$6)`;
+    const addTask =  `INSERT INTO todo (uid, task, description, status, priority, subtasks, date_added) VALUES ($1,$2,$3,$4,$5,$6,$7)`;
     return addTask;
   },
   findTaskById: () => {
@@ -29,7 +29,7 @@ const queries = {
     return markAsDone;
   },
   getPendingTasks: () => {
-    const getPendingTasks = `SELECT * FROM TODO where status = $1 and uid = $2`;
+    const getPendingTasks = `SELECT * FROM TODO where status != $1 and uid = $2`;
     return getPendingTasks
   },
   getDoneTasks: () => {
@@ -57,8 +57,8 @@ const queries = {
     return startTask;
   },
   endTask: () => {
-    const startTask = `UPDATE TODO set end_time = $1, status = $2 where tid = $3 and uid = $4 and status != $5`;
-    return startTask;
+    const endTask = `UPDATE TODO set end_time = $1, status = $2 where tid = $3 and uid = $4 and status != $5`;
+    return endTask;
   },
   sortTasks: () => {
     const sortTasks = `SELECT * FROM TODO where uid = $1 order by priority asc`;

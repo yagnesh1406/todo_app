@@ -7,6 +7,7 @@ router.use(authenticateToken)
 
 router.post("/addTask", controller.addTask);
 router.post("/markAsDone/:id", controller.markAsDone);
+router.get("/getDoneTasks", controller.getDoneTasks);
 router.get("/getPendingTasks", controller.getPendingTasks);
 router.get("/getAllTasks", controller.getAllTasks);
 router.get("/getTaskByName/:name", controller.getTaskByName);

@@ -3,9 +3,9 @@ const queries = require('../config/queries');
 
 class Todo {
 
-    static async addTask(uid,task,description,status,priority,date) {
+    static async addTask(uid,task,description,status,priority, subtasks,date) {
         const db = await dbInstance.getInstance();
-        const result = await db.query(queries.addTask(), [uid,task,description,status,priority,date]);
+        const result = await db.query(queries.addTask(), [uid,task,description,status,priority, subtasks, date]);
         return result;
       }
     
@@ -23,7 +23,7 @@ class Todo {
 
     static async getPendingTasks(uid){
       const db = await dbInstance.getInstance();
-      const result = await db.query(queries.getPendingTasks(), ['false',uid]);
+      const result = await db.query(queries.getPendingTasks(), ['true',uid]);
       return result;
     }
 

@@ -1,15 +1,18 @@
 const API_BASE_URL = 'http://localhost:8000/api/todo';
 
 const token = localStorage.getItem('authToken');
+console.log(token);
+
+// const getToken = () => localStorage.getItem('authToken');
 
 const api = {
-  addTask: (task) => fetch(`${API_BASE_URL}/addTask`, {
+  addTask: (taskk) => fetch(`${API_BASE_URL}/addTask`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     },
-    body: JSON.stringify(task),
+    body: JSON.stringify(taskk),
   }),
   markAsDone: (id) => fetch(`${API_BASE_URL}/markAsDone/${id}`, {
     method: 'POST',
@@ -64,5 +67,8 @@ const api = {
     },
   }),
 };
+
+// export { getToken, api as default };
+// module.exports = {api};
 
 export default api;
