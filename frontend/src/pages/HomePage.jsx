@@ -9,18 +9,8 @@ const HomePage = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    // Fetch all tasks when the component mounts
     fetchAllTasks();
   }, []);
-
-  // const getCurrentUser = async function () {
-  //   const currentUser = await JSON.parse.User.current();
-  //   // Update state variable holding current user
-  //   // setCurrentUser(currentUser);
-  //   return currentUser;
-  // };
-
-  // console.log(getCurrentUser());
 
   const fetchAllTasks = async () => {
     try {
@@ -55,10 +45,7 @@ const HomePage = () => {
   const handleSort = async () => {
     try {
       const response = await api.sortTasks();
-      // console.log(response);
       if (response.ok) {
-        // Refresh the task list after marking a task as done
-        // fetchAllTasks();
         const data = await response.json();
         console.log(data.data);
         setTasks(data.data);

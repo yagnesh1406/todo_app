@@ -73,7 +73,4 @@ const api = {
   }),
 };
 
-// export { getToken, api as default };
-// module.exports = {api};
-
 export default api;

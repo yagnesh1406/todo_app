@@ -20,7 +20,7 @@ const RegisterPage = () => {
   return (
     <div>
       <h1>Register</h1>
-      <div>
+      <div class="col-md-4 mb-3">
         <input
           type="text"
           placeholder="Uname"
@@ -28,7 +28,7 @@ const RegisterPage = () => {
           onChange={(e) => setUname(e.target.value)}
         />
       </div>
-      <div>
+      <div class="col-md-4 mb-3">
         <input
           type="text"
           placeholder="Username"
@@ -36,7 +36,7 @@ const RegisterPage = () => {
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <div>
+      <div class="col-md-4 mb-3">
         <input
           type="password"
           placeholder="Password"
@@ -45,7 +45,7 @@ const RegisterPage = () => {
         />
       </div>
       <div>
-        <button onClick={handleRegister}>Register</button>
+        <button class="btn btn-primary" onClick={handleRegister}>Register</button>
       </div>
     </div>
   );

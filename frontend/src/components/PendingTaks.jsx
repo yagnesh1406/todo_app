@@ -74,6 +74,10 @@ const PendingTasks = () => {
         console.error("Error deleting task:", error.message);
       }
     };
+
+    const handleEdit = async (id) => {
+        navigate('/edittask');
+    }
   
     const handleEnd = async (id) => {
       try {
@@ -158,6 +162,14 @@ const PendingTasks = () => {
                           onClick={() => handleEnd(task.tid)}
                         >
                           End
+                        </button> 
+                    </td>
+                    <td>
+                        <button
+                          class="btn btn-warning"
+                          onClick={() => handleEdit(task.tid)}
+                        >
+                          Edit
                         </button> 
                     </td>
                   </tr>

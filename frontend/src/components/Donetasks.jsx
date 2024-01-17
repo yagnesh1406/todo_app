@@ -66,7 +66,6 @@ const Donetasks = () => {
           </tbody>
         </table>
       </div>
-
     </>
   );
 };

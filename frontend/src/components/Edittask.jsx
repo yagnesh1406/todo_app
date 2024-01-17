@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import api from "../services/apis";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const AddTaskForm = ({ onAddTask }) => {
+const Edittask = ({ onAddTask }) => {
   const navigate = useNavigate();
   const [newTask, setNewTask] = useState("");
   const [description, setDescription] = useState("");
-  const [priority, setPriority] = useState("");
+
   const handleAddTask = async () => {
     try {
       console.log(newTask, description);
@@ -16,14 +16,13 @@ const AddTaskForm = ({ onAddTask }) => {
         task: newTask,
         description: description,
       };
-      const response = await api.addTask(taskk);
+      const response = await api.editTask(taskk);
       // console.log(response);
       if (response.ok) {
         // onAddTask();
+        navigate("/");
         setNewTask("");
         setDescription("");
-        navigate("/donetasks");
-      
       } else {
         console.error("Error marking task as done");
       }
@@ -58,23 +57,11 @@ const AddTaskForm = ({ onAddTask }) => {
           onChange={(e) => setDescription(e.target.value)}
         />
       </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">
-          Task Priority
-        </label>
-        <input
-          class="form-control"
-          type="text"
-          value={priority}
-          placeholder="description"
-          onChange={(e) => setPriority(e.target.value)}
-        />
-      </div>
       <button class="btn btn-primary" onClick={handleAddTask}>
-        Add Task
+        Edit Task
       </button>
     </form>
   );
 };
 
-export default AddTaskForm;
+export default Edittask;

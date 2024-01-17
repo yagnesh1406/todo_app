@@ -48,7 +48,6 @@ const TaskList = () => {
               <th>Priority</th>
               <th>start_time</th>
               <th>end_time</th>
-
             </tr>
           </thead>
           <tbody>
