@@ -5,7 +5,7 @@ const queries = {
     return checkDbInstanceQuery;
   },
   findByUsername: () => {
-    const findByUsername = `SELECT * FROM users WHERE username = $2`;
+    const findByUsername = `SELECT * FROM users WHERE username = $1`;
     return findByUsername;
   },
   findById: () => {
